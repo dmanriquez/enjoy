@@ -152,7 +152,7 @@ footer{
 .input-pin{
   width: 360px;
   height: 85px;
-  background: url('/assets/images/background-pin.svg') no-repeat center;
+  background: url('../images/background-pin.svg') no-repeat center;
   background-size: cover;
   border: none;
   border-radius: 8px;
