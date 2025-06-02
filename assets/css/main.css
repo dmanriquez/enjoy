@@ -27,6 +27,9 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 img, picture, video, canvas, svg {
@@ -47,6 +50,7 @@ a {
   text-decoration: none;
   color: var(--primary-color);
   font-weight: 900;
+  font-size: 24px;
 }
 
 ul, ol {
@@ -57,26 +61,30 @@ table {
   border-collapse: collapse;
 }
 
-/* Custom CSS */
-
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  min-height: 100vh;
-  border-top: var(--primary-color) 20px solid;
+  justify-content: flex-start;
+  flex: 1;
+  border-top: var(--primary-color) 10px solid;
+}
+
+/* ////////////// Header ////////////// */
+
+header{
+  width: 100%;
+  max-height: 60px;
+  padding: 0 2rem;
+  margin: 1rem 0;
 }
 
 header img{
   width: 600px
 }
 
-header{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 1rem 0;
+header .logo-logged{
+  width: 350px
 }
 
 footer{
@@ -86,16 +94,37 @@ footer{
   align-items: center;
   padding: 0 2rem;
   margin: 1rem 0;
+  margin-top: auto;
 }
 
 .container{
   max-width: 1000px;
 }
 
+.container-full{
+  width: 100% !important;
+  background: linear-gradient(to bottom,#161616, #2A2A2A) !important;
+  padding: 0 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ////////////// Clases utilitarias ////////////// */
+.w-full{
+  width: 100%;
+}
+
 .flex{
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+}
+
+.flex-row{
+  flex-direction: row;
+}
+
+.flex-column{
+  flex-direction: column;
 }
 
 .align-center{
@@ -106,11 +135,83 @@ footer{
   justify-content: center;
 }
 
+.justify-between{
+  justify-content: space-between;
+}
+
 .mr-1{
   margin-right: 10px;
 }
 
+.mt-1{
+  margin-top: 10px;
+}
+
+.mb-1{
+  margin-bottom: 10px;
+}
+
+.mr-2{
+  margin-right: 20px;
+}
+
+.py-1{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.py-2{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.font-bold{
+  font-weight: bold;
+}
+
+.font-size-16{
+  font-size: 16px;
+}
+
+.font-size-18{
+  font-size: 18px;
+}
+
+.font-size-24{
+  font-size: 24px;
+}
+
+.font-size-32{
+  font-size: 32px;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.text-uppercase{
+  text-transform: uppercase;
+}
+
+.btn-primary{
+  border: 1px solid var(--primary-color);
+  background-color: transparent;
+  border-radius: 8px;
+  padding: 10px 20px;
+}
+
+.color-primary{
+  color: var(--primary-color);
+}
+
+.border-bottom{
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ////////////// Contenedores ////////////// */
+
 .content-home h2,
+.content-inicio h2,
 .content-send-pin h2{
   font-size: 36px;
   font-weight: 900;
@@ -119,7 +220,10 @@ footer{
   margin: 0 0 2rem 0;
 }
 
-.content-pin{
+.content-pin,
+.content-inicio,
+.content-send-pin{
+  height: 380px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -128,13 +232,8 @@ footer{
   padding: 20px 0;
 }
 
-.content-send-pin{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px 0;
+.content-tu-cuenta {
+  height: 380px;
 }
 
 .teclado{
@@ -213,6 +312,7 @@ footer{
   font-weight: 900;
 }
 
+/* ////////////// Grilla de botones ////////////// */
 
 .grilla-accesos{
   display: grid;
@@ -221,24 +321,33 @@ footer{
   margin: 2rem 0;
 }
 
+.grilla-accesos-logged{
+  width: 100%;
+  display: flex;
+  gap: 25px;
+  margin: 1rem 0;
+}
+
+/* ////////////// Cards ////////////// */
 .card {
   width: 250px;
   height: 250px;
-  background-image: url('/assets/images/background-card.svg');
-  background-size: cover;
-  background-position: center;
+  background: #404040;
+  background: radial-gradient(circle 300px at 100% -50%,rgba(232, 210, 43, 0.4) 0%, rgba(64, 64, 64, 1) 96%);
   border-radius: 20px;
-  padding: 20px;
+  padding: 10px;
   color: white;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .6);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex: 1;
 }
 
 .card img {
-  height: 65px;
+  height: 75px;
 }
 
 .card h3 {
@@ -253,13 +362,40 @@ footer{
   color: var(--primary-color);
 }
 
-.btn-primary{
-  border: 1px solid var(--primary-color);
-  background-color: transparent;
-  border-radius: 8px;
-  padding: 10px 20px;
+.card-logged {
+  height: 135px;
+  background: #404040;
+  background: radial-gradient(circle 400px at 100% -100%,rgba(232, 210, 43, 0.4) 0%, rgba(64, 64, 64, 1) 96%);
+  border-radius: 20px;
+  padding: 10px;
+  color: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
 }
 
+.card-logged img {
+  height: 45px;
+}
+
+.card-logged h3 {
+  margin: 5px 0 0 0;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.card-logged p {
+  margin: 2px 0 0 0;
+  font-size: 16px;
+  color: var(--primary-color);
+}
+
+
+/* ////////////// Pop up ////////////// */
 .message{
   position: absolute;
   top: 0;
@@ -308,4 +444,104 @@ footer{
   position: absolute;
   top: -25px;
   right: -25px;
+}
+
+/* ////////////// Tablas de informacion ////////////// */
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  font-weight: 900;
+  border-bottom: 1px solid #e9ecef;
+  padding: .5rem 0 .5rem 0;
+}
+
+.user-info-item {
+  display: flex;
+  align-items: center;
+  padding: 3px 0;
+}
+
+.user-info-item:last-child {
+  border-bottom: none;
+}
+
+.user-info-label {
+  color: var(--secondary-color);
+  width: 380px;
+}
+
+.user-info-value{
+  width: 250px;
+  color:var(--primary-color);
+}
+
+.user-info-edit {
+  color:var(--primary-color);
+}
+
+/* ////////////// Lista de sorteos ////////////// */
+
+.wrapper-lista-sorteos{
+  width: 350px;
+  height: 300px;
+  overflow-y: auto;
+}
+
+.lista-sorteos{
+  width: 100%;
+}
+
+.lista-sorteos li{
+  font-size: 18px;
+  font-weight: 900;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  line-height: 20px;
+}
+
+.lista-sorteos li:nth-child(odd) {
+  background-color:rgba(255, 255, 255, 0.25);
+}
+
+.lista-sorteos li:nth-child(even) {
+  background-color: transparent;
+}
+
+.lista-sorteos li.selected{
+  color: var(--primary-color);
+}
+
+.lista-sorteos .label{
+  background-color: #ffffff;
+  color: var(--background-color);
+  padding: 2px;
+  border-radius: 7px;
+}
+
+/* ////////////// Lista de sorteos ////////////// */
+.wrapper-counter{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.wrapper-counter span{
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0 20px;
+}
+
+.wrapper-suma{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
