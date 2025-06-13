@@ -9,14 +9,14 @@
   --font-family: 'Lato', sans-serif;
   --font-size: 16px;
 
-  --padding-teclado: 7px;
+  --padding-teclado: 10px;
 }
 
 
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;s
+  padding: 0;
 }
 
 body {
@@ -483,6 +483,7 @@ footer{
   align-items: center;
   padding: 30px 20px;
   min-width: 600px;
+  max-width: 601px;
 }
 
 .message-content h2{

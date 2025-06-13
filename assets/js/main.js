@@ -61,44 +61,123 @@ document.addEventListener("DOMContentLoaded", function () {
 
   initCarousel();
 
-  // Mensaje para imprimir cupones
+  // Sistema de popup genérico simplificado
+  
+  function mostrarPopup(config) {
+    const messageDiv = document.querySelector(".message");
+    if (!messageDiv) return;
 
-  const btnPrint = document.getElementById("btn-print-cupones");
-  const messageDiv = document.querySelector(".message");
-  const btnClose = document.querySelector(".btn-close");
+    const messageContent = messageDiv.querySelector(".message-content");
+    if (!messageContent) return;
 
-  function showPrintMessage() {
-    if (messageDiv) {
-      messageDiv.style.display = "flex";
-      messageDiv.classList.add("show");
+    // Limpiar contenido anterior
+    messageContent.innerHTML = '';
+
+    // Botón de cerrar (siempre presente)
+    const btnClose = document.createElement('span');
+    btnClose.className = 'btn-close';
+    btnClose.innerHTML = '<img src="assets/images/icon-close.svg">';
+    messageContent.appendChild(btnClose);
+
+    // Agregar icono si está configurado
+    if (config.mostrarIcono && config.icono) {
+      const icono = document.createElement('img');
+      icono.src = config.icono;
+      icono.alt = 'Icono';
+      messageContent.appendChild(icono);
     }
+
+    // Agregar título si está configurado
+    if (config.mostrarTitulo && config.titulo) {
+      const titulo = document.createElement('h2');
+      titulo.textContent = config.titulo;
+      messageContent.appendChild(titulo);
+    }
+
+    // Agregar mensaje
+    const mensaje = document.createElement('p');
+    mensaje.textContent = config.mensaje;
+    messageContent.appendChild(mensaje);
+
+    // Mostrar popup
+    messageDiv.style.display = "flex";
+    messageDiv.classList.add("show");
+
+    // Agregar event listener al botón de cerrar
+    btnClose.addEventListener("click", ocultarPopup);
   }
 
-  function hidePrintMessage() {
+  function ocultarPopup() {
+    const messageDiv = document.querySelector(".message");
     if (messageDiv) {
       messageDiv.style.display = "none";
       messageDiv.classList.remove("show");
     }
   }
 
+  // Configuraciones predefinidas de popups
+  const POPUP_CONFIGS = {
+    imprimiendo: {
+      titulo: "Imprimiendo...",
+      icono: "assets/images/icon-print-popup.svg",
+      mensaje: "Por favor espera mientras se imprimen tus cupones",
+      mostrarTitulo: true,
+      mostrarIcono: true
+    },
+    datosIncorrectos: {
+      titulo: "Datos incorrectos",
+      icono: "assets/images/icon-datos-incorrectos.svg",
+      mensaje: "Debe dirigirse a una oficina enjoy club para actualizar sus datos",
+      mostrarTitulo: true,
+      mostrarIcono: true
+    },
+    error: {
+      titulo: "Error",
+      icono: "assets/images/icon-error.svg",
+      mensaje: "Ha ocurrido un error inesperado",
+      mostrarTitulo: true,
+      mostrarIcono: true
+    },
+    sinIcono: {
+      titulo: "Información",
+      mensaje: "Información importante para el usuario",
+      mostrarTitulo: true,
+      mostrarIcono: false
+    },
+    soloMensaje: {
+      mensaje: "Mensaje simple sin título ni icono",
+      mostrarTitulo: false,
+      mostrarIcono: false
+    }
+  };
+
+  // Función para mostrar popup usando configuración predefinida
+  function mostrarPopupPredefinido(tipo) {
+    if (POPUP_CONFIGS[tipo]) {
+      mostrarPopup(POPUP_CONFIGS[tipo]);
+    }
+  }
+
+  // Event listeners para elementos existentes
+  const btnPrint = document.getElementById("btn-print-cupones");
   if (btnPrint) {
     btnPrint.addEventListener("click", function (e) {
       e.preventDefault();
-      showPrintMessage();
+      mostrarPopupPredefinido('imprimiendo');
     });
   }
 
-  if (btnClose) {
-    btnClose.addEventListener("click", function () {
-      hidePrintMessage();
-    });
-  }
+  // Event listener para cerrar popup al hacer clic fuera
+  document.addEventListener('click', function(e) {
+    const messageDiv = document.querySelector(".message");
+    if (e.target === messageDiv) {
+      ocultarPopup();
+    }
+  });
 
-  if (messageDiv) {
-    messageDiv.addEventListener("click", function (e) {
-      if (e.target === messageDiv) {
-        hidePrintMessage();
-      }
-    });
-  }
+  // Exponer solo lo esencial globalmente
+  window.PopupManager = {
+    mostrarPredefinido: mostrarPopupPredefinido,
+    ocultar: ocultarPopup
+  };
 });
