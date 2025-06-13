@@ -61,6 +61,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   initCarousel();
 
+  // Mensaje para imprimir cupones
+
   const btnPrint = document.getElementById("btn-print-cupones");
   const messageDiv = document.querySelector(".message");
   const btnClose = document.querySelector(".btn-close");
