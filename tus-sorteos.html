@@ -20,7 +20,7 @@
     <div class="container-full">
       <div class="content-navegacion">
         <div class="flex justify-center py-1">
-          <div class="mr-2 flex flex-column">
+          <div class="mr-2 flex flex-column ">
             <img src="assets/images/icon-sorteos.svg">
             <h2>Tus sorteos</h2>
           </div>
@@ -46,21 +46,31 @@
               <small>Sorteo virtual a las 00:00 horas</small>
               <div>
                 <span class="flex align-center font-size-24 mt-1 font-bold"><img src="assets/images/icon-print.svg" class="mr-1"><span>Imprimir <span class="font-bold color-primary">1</span> de 0 cupones ganados</span></span>
-                <div class="wrapper-counter">
-                  <img src="assets/images/tecla+.svg">
-                  <span class="font-size-32 font-bold">1</span>
-                  <img src="assets/images/tecla-.svg">
-                </div>
-                <div class="wrapper-suma">
-                  <div class="mr-1">
-                    <span class="font-bold font-size-32">+</span>
+                <div class="wrapper-calculadora">
+                  <div class="flex flex-column">
+                    <div class="flex flex-row align-center">
+                      <div style="width: 205px;"></div>
+                      <div class="flex flex-row align-center">
+                        <span class="font-bold font-size-32 mr-1">1</span>
+                        <p style="line-height: 18px;">Cupones disponibles obtenidos por tus visitas</p>
+                      </div>
+                    </div>
+                    <div class="flex flex-row align-center border-bottom">
+                      <div class="wrapper-counter">
+                        <img src="assets/images/tecla+.svg">
+                        <span class="font-size-32 font-bold">1</span>
+                        <img src="assets/images/tecla-.svg"></div>
+                      <div class="flex flex-row align-center">
+                        <span class="font-bold font-size-32 mr-1">5</span> 
+                        <p style="line-height: 18px;">Cupones disponibles obtenidos por tus visitas</p>
+                      </div>
+                    </div>
+                    <div class="flex flex-row align-center justify-center">
+                      <span class="font-bold font-size-32 mr-2">10</span> <span>Total de cupones a imprimir</span>
+                    </div>
                   </div>
-                  <div class="flex flex-column align-center" style="width: 100%;">
-                    <span class="font-bold font-size-32 border-bottom w-full text-center">1</span>
-                    <span class="font-bold font-size-32 w-full text-center">1</span>
-                  </div>
                 </div>
-                <button type="button" id="btn-print-cupones"><img src="assets/images/btn-print-cupones.svg"></button>
+                <button type="button" onclick="PopupManager.mostrarPredefinido('imprimiendo')" class="btn"><img src="assets/images/btn-print-cupones.svg"></button>
               </div>
             </div>
           </div>
@@ -85,11 +95,7 @@
     </div>
   <!-- Popup -->
   <div class="message">
-    <div class="message-content">
-      <span class="btn-close"><img src="assets/images/icon-close.svg"></span>
-      <img src="assets/images/icon-print-popup.svg">
-      <h2>Imprimiendo...</h2>
-    </div>
+    <div class="message-content"></div>
   </div>
   <footer>
     <a href="#">Condiciones de uso</a>

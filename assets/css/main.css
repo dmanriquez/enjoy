@@ -590,11 +590,12 @@ footer{
 
 /* ////////////// Lista de sorteos ////////////// */
 .wrapper-counter{
+  width: 205px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  margin: 10px 0;
+  justify-content: flex-start;
+  margin: 5px 0;
 }
 
 .wrapper-counter span{
@@ -603,7 +604,9 @@ footer{
   margin: 0 20px;
 }
 
-.wrapper-suma{
+
+/* ////////////// Calculadora ////////////// */
+.wrapper-calculadora{
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -611,7 +614,7 @@ footer{
 }
 
 /* ////////////// Botón imprimir cupones ////////////// */
-#btn-print-cupones {
+.btn {
   background: transparent;
   border: none;
   cursor: pointer;
@@ -620,11 +623,11 @@ footer{
   transition: opacity 0.2s ease;
 }
 
-#btn-print-cupones:hover {
+.btn:hover {
   opacity: 0.8;
 }
 
-#btn-print-cupones img {
+.btn img {
   display: block;
   max-width: 100%;
   height: auto;
