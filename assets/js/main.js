@@ -269,4 +269,96 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Inicializar el teclado PIN
   initPinKeyboard();
+
+  // Funcionalidad del contador
+  function initCounter() {
+    const wrapperCounter = document.querySelector('.wrapper-counter');
+    
+    if (!wrapperCounter) {
+      return; // No está en una página con contador
+    }
+
+    const counterValue = wrapperCounter.querySelector('span');
+    const incrementBtn = wrapperCounter.querySelector('img[src*="tecla+.svg"]');
+    const decrementBtn = wrapperCounter.querySelector('img[src*="tecla-.svg"]');
+    
+    if (!counterValue || !incrementBtn || !decrementBtn) {
+      return; // Faltan elementos necesarios
+    }
+
+    let currentValue = parseInt(counterValue.textContent) || 1;
+    const minValue = 1;
+    const maxValue = 99; // Límite máximo del contador
+
+    // Función para actualizar el valor mostrado
+    function updateCounterDisplay() {
+      counterValue.textContent = currentValue;
+    }
+
+    // Función para incrementar
+    function increment() {
+      if (currentValue < maxValue) {
+        currentValue++;
+        updateCounterDisplay();
+      }
+    }
+
+    // Función para decrementar
+    function decrement() {
+      if (currentValue > minValue) {
+        currentValue--;
+        updateCounterDisplay();
+      }
+    }
+
+    // Agregar estilos de hover y cursor pointer a los botones
+    incrementBtn.style.cursor = 'pointer';
+    decrementBtn.style.cursor = 'pointer';
+    
+    incrementBtn.style.transition = 'opacity 0.2s ease';
+    decrementBtn.style.transition = 'opacity 0.2s ease';
+
+    // Event listeners para los botones
+    incrementBtn.addEventListener('click', increment);
+    decrementBtn.addEventListener('click', decrement);
+
+    // Efectos visuales en hover
+    incrementBtn.addEventListener('mouseenter', function() {
+      this.style.opacity = '0.7';
+    });
+    
+    incrementBtn.addEventListener('mouseleave', function() {
+      this.style.opacity = '1';
+    });
+
+    decrementBtn.addEventListener('mouseenter', function() {
+      this.style.opacity = '0.7';
+    });
+    
+    decrementBtn.addEventListener('mouseleave', function() {
+      this.style.opacity = '1';
+    });
+
+    // Función para obtener el valor actual (por si se necesita desde fuera)
+    window.getCounterValue = function() {
+      return currentValue;
+    };
+
+    // Función para establecer un valor específico
+    window.setCounterValue = function(value) {
+      const newValue = parseInt(value);
+      if (newValue >= minValue && newValue <= maxValue) {
+        currentValue = newValue;
+        updateCounterDisplay();
+        return true;
+      }
+      return false;
+    };
+
+    // Inicializar el display
+    updateCounterDisplay();
+  }
+
+  // Inicializar el contador
+  initCounter();
 });
