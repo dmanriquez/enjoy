@@ -644,9 +644,11 @@ footer{
 }
 
 .wrapper-counter span{
+  width: 40px;
+  text-align: center;
   font-size: 32px;
   font-weight: 800;
-  margin: 0 18px;
+  margin: 0 10px;
 }
 
 
