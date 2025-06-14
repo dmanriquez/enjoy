@@ -549,12 +549,20 @@ footer{
 
 .wrapper-lista-sorteos{
   width: 350px;
-  height: 300px;
-  overflow-y: auto;
+  height: 275px;
+  overflow-y: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .lista-sorteos{
   width: 100%;
+  flex: 1;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .lista-sorteos li{
@@ -586,6 +594,40 @@ footer{
   color: var(--background-color);
   padding: 2px;
   border-radius: 7px;
+}
+
+/* Estilos para las flechas de scroll */
+.scroll-arrow {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.scroll-arrow.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-arrow:hover {
+  opacity: 0.7;
+}
+
+.scroll-arrow:active {
+  transform: scale(0.95);
+}
+
+#scroll-up {
+  order: -1;
+}
+
+#scroll-down {
+  order: 1;
 }
 
 /* ////////////// Lista de sorteos ////////////// */
