@@ -417,7 +417,7 @@ function initSorteosScroll() {
   [scrollUpBtn, scrollDownBtn].forEach(btn => {
     btn.addEventListener('mouseenter', function() {
       if (this.classList.contains('visible')) {
-        this.style.opacity = '0.7';
+        this.style.opacity = '1';
       }
     });
     

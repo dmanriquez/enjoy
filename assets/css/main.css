@@ -549,7 +549,7 @@ footer{
 
 .wrapper-lista-sorteos{
   width: 350px;
-  height: 275px;
+  height: 300px;
   overflow-y: hidden;
   position: relative;
   display: flex;
@@ -673,4 +673,8 @@ footer{
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+.arrow{
+  padding: 8px 0;
 }
