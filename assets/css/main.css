@@ -249,7 +249,8 @@ footer{
   padding: 20px 0;
 }
 
-.content-tu-cuenta {
+.content-tu-cuenta,
+.content-tus-sorteos{
   width: 100%;
   height: 380px;
 }
@@ -549,7 +550,8 @@ footer{
 /* ////////////// Lista de sorteos ////////////// */
 
 .wrapper-lista-sorteos{
-  width: 350px;
+  /* width: 350px; */
+  width: 100%;
   height: 315px;
   overflow-y: hidden;
   position: relative;
