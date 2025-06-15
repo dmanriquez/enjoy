@@ -635,7 +635,7 @@ footer{
 
 /* ////////////// Lista de sorteos ////////////// */
 .wrapper-counter{
-  width: 205px;
+  width: 240px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -644,9 +644,11 @@ footer{
 }
 
 .wrapper-counter span{
+  width: 40px;
+  text-align: center;
   font-size: 32px;
   font-weight: 800;
-  margin: 0 20px;
+  margin: 0 10px;
 }
 
 
@@ -654,8 +656,7 @@ footer{
 .wrapper-calculadora{
   width: 100%;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
 }
 
 /* ////////////// Botón imprimir cupones ////////////// */
