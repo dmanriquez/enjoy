@@ -288,7 +288,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let currentValue = parseInt(counterValue.textContent) || 1;
     const minValue = 1;
-    const maxValue = 99; // Límite máximo del contador
+    const maxValue = 999; // Límite máximo del contador
 
     // Función para actualizar el valor mostrado
     function updateCounterDisplay() {
