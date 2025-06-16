@@ -37,12 +37,12 @@
               <div class="user-info-item">
                 <span class="user-info-label">Email:</span>
                 <span class="user-info-value">correo@correo.cl</span>
-                <a href="#"><span class="user-info-edit flex font-size-16"><img src="assets/images/icon-edit.svg" style="padding-right: 3px;"><span>Modificar</span></span></a>
+                <a href="#"><span class="user-info-edit flex font-size-16"><img src="assets/images/icon-edit.svg" style="padding-right: 3px;"><span>Modificar correo</span></span></a>
               </div>
               <div class="user-info-item">
                 <span class="user-info-label">Teléfono:</span>
                 <span class="user-info-value">+56 9 9382 8762</span>
-                <a href="#"><span class="user-info-edit flex font-size-16"><img src="assets/images/icon-edit.svg" style="padding-right: 3px;"><span>Modificar</span></span></a>
+                <a href="#"><span class="user-info-edit flex font-size-16"><img src="assets/images/icon-edit.svg" style="padding-right: 3px;"><span>Modificar teléfono</span></span></a>
               </div>
             </div>
             <div class="user-info">
@@ -87,15 +87,21 @@
     </div>
   </div>
   <div class="edit-message">
+    <span class="btn-close-edit">
+      <svg width="40" height="40" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="15" cy="15" r="14" fill="white" stroke="black" stroke-width="2"/>
+        <path d="M10 10L20 20M20 10L10 20" stroke="black" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </span>
     <div class="content-edit-message">
       <div class="content-edit-inputs">
         <div class="py-2 text-center">
-          <h2 class="text-uppercase color-primary font-size-42">Modificar RUT</h2>
-          <p class="text-center font-size-24">Para modificar tu RUT, ingresa el nuevo RUT a continuación.</p>
+          <h2 class="text-uppercase color-primary font-size-42">Modificar correo electrónico</h2>
+          <p class="text-center font-size-24">Para modificar tu correo electrónico, ingresa el nuevo correo a continuación.</p>
         </div>
         <input type="text" class="input-edit">
         <!-- Este párrafo es para mensajes (Si no se ocupa DEBE estar vacío solamente para que cuando aparezca no produzca un "salto")-->
-        <p class="font-size-18 color-primary font-bold mt-1">Ingrese un rut válido</p>
+        <p class="font-size-18 color-primary font-bold mt-1">Ingrese un correo electrónico válido</p>
       </div>
       <div class="keyboard">
         <!-- Fila de números y símbolos -->
@@ -181,95 +187,7 @@
     <a href="#" class="flex align-center justify-center"><span class="mr-1">Salir</span> <img src="assets/images/icon-salir.svg"></a>
   </footer>
 </main>
-<script>
-// Funcionalidad del teclado touchscreen
-document.addEventListener('DOMContentLoaded', function() {
-  const input = document.querySelector('.input-edit');
-  const teclas = document.querySelectorAll('.tecla-img');
-  const symbolsRow = document.querySelector('.symbols-row');
-  let isShiftActive = false;
-  let isSymbolsActive = false;
-  
-  teclas.forEach(tecla => {
-    tecla.addEventListener('click', function() {
-      const letra = this.querySelector('.tecla-letra').textContent;
-      
-      // Manejar teclas especiales
-      if (this.classList.contains('tecla-backspace')) {
-        // Borrar último carácter
-        input.value = input.value.slice(0, -1);
-        
-      } else if (this.classList.contains('tecla-shift')) {
-        // Alternar mayúsculas/minúsculas
-        isShiftActive = !isShiftActive;
-        this.style.background = isShiftActive ? 
-          'linear-gradient(135deg, rgba(232, 209, 44, 0.9) 0%, rgba(200, 180, 20, 0.9) 100%)' :
-          'linear-gradient(135deg, rgba(100, 100, 100, 0.95) 0%, rgba(80, 80, 80, 0.95) 100%)';
-        
-        // Actualizar todas las letras
-        updateLetterCase();
-        
-      } else if (this.classList.contains('tecla-symbols')) {
-        // Alternar vista de símbolos
-        isSymbolsActive = !isSymbolsActive;
-        symbolsRow.style.display = isSymbolsActive ? 'flex' : 'none';
-        this.querySelector('.tecla-letra').textContent = isSymbolsActive ? 'ABC' : '123';
-        
-      } else if (this.classList.contains('tecla-space')) {
-        // Agregar espacio
-        input.value += ' ';
-        
-      } else if (this.classList.contains('tecla-enter')) {
-        // Simular envío o nueva línea (para este caso, podríamos cerrar el modal)
-        console.log('Enter presionado:', input.value);
-        
-      } else {
-        // Agregar carácter normal
-        let charToAdd = letra;
-        
-        // Aplicar mayúscula si shift está activo y es una letra
-        if (/[a-zA-ZñÑ]/.test(letra)) {
-          charToAdd = isShiftActive ? letra.toUpperCase() : letra.toLowerCase();
-        }
-        
-        input.value += charToAdd;
-        
-        // Desactivar shift después de escribir una letra
-        if (isShiftActive && /[a-zA-ZñÑ]/.test(letra)) {
-          isShiftActive = false;
-          document.querySelector('.tecla-shift').style.background = 
-            'linear-gradient(135deg, rgba(100, 100, 100, 0.95) 0%, rgba(80, 80, 80, 0.95) 100%)';
-          updateLetterCase();
-        }
-      }
-      
-      // Efecto visual de pulsación
-      this.style.transform = 'translateY(2px)';
-      setTimeout(() => {
-        this.style.transform = '';
-      }, 100);
-      
-      // Mantener focus en el input
-      input.focus();
-    });
-  });
-  
-  function updateLetterCase() {
-    const letterTeclas = document.querySelectorAll('.tecla-img:not(.tecla-shift):not(.tecla-backspace):not(.tecla-symbols):not(.tecla-space):not(.tecla-enter)');
-    letterTeclas.forEach(tecla => {
-      const span = tecla.querySelector('.tecla-letra');
-      const currentText = span.textContent;
-      
-      if (/[a-zA-ZñÑ]/.test(currentText)) {
-        span.textContent = isShiftActive ? currentText.toUpperCase() : currentText.toLowerCase();
-      }
-    });
-  }
-  
-  // Inicializar con minúsculas
-  updateLetterCase();
-});
-</script>
+<script src="assets/js/main.js"></script>
 </body>
 
 </html>

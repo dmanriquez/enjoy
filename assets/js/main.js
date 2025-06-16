@@ -364,6 +364,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Inicializar scroll de lista de sorteos
   initSorteosScroll();
+
+  function initModificarCorreo() {
+    const btnModificarCorreo = document.querySelector('a[href="#"] .user-info-edit');
+    const editMessage = document.querySelector('.edit-message');
+    const btnCloseEdit = document.querySelector('.btn-close-edit');
+    
+    if (btnModificarCorreo && editMessage) {
+      btnModificarCorreo.closest('a').addEventListener('click', function(e) {
+        e.preventDefault();
+        editMessage.style.display = 'flex';
+      });
+    }
+    
+    if (btnCloseEdit && editMessage) {
+      btnCloseEdit.addEventListener('click', function() {
+        editMessage.style.display = 'none';
+      });
+    }
+  }
+
+  initModificarCorreo();
 });
 
 // Función para manejar el scroll de la lista de sorteos
@@ -428,3 +449,91 @@ function initSorteosScroll() {
     });
   });
 }
+
+// Funcionalidad del teclado touchscreen
+document.addEventListener('DOMContentLoaded', function() {
+  const input = document.querySelector('.input-edit');
+  const teclas = document.querySelectorAll('.tecla-img');
+  const symbolsRow = document.querySelector('.symbols-row');
+  let isShiftActive = false;
+  let isSymbolsActive = false;
+  
+  teclas.forEach(tecla => {
+    tecla.addEventListener('click', function() {
+      const letra = this.querySelector('.tecla-letra').textContent;
+      
+      // Manejar teclas especiales
+      if (this.classList.contains('tecla-backspace')) {
+        // Borrar último carácter
+        input.value = input.value.slice(0, -1);
+        
+      } else if (this.classList.contains('tecla-shift')) {
+        // Alternar mayúsculas/minúsculas
+        isShiftActive = !isShiftActive;
+        this.style.background = isShiftActive ? 
+          'linear-gradient(135deg, rgba(232, 209, 44, 0.9) 0%, rgba(200, 180, 20, 0.9) 100%)' :
+          'linear-gradient(135deg, rgba(100, 100, 100, 0.95) 0%, rgba(80, 80, 80, 0.95) 100%)';
+        
+        // Actualizar todas las letras
+        updateLetterCase();
+        
+      } else if (this.classList.contains('tecla-symbols')) {
+        // Alternar vista de símbolos
+        isSymbolsActive = !isSymbolsActive;
+        symbolsRow.style.display = isSymbolsActive ? 'flex' : 'none';
+        this.querySelector('.tecla-letra').textContent = isSymbolsActive ? 'ABC' : '123';
+        
+      } else if (this.classList.contains('tecla-space')) {
+        // Agregar espacio
+        input.value += ' ';
+        
+      } else if (this.classList.contains('tecla-enter')) {
+        // Simular envío o nueva línea (para este caso, podríamos cerrar el modal)
+        console.log('Enter presionado:', input.value);
+        
+      } else {
+        // Agregar carácter normal
+        let charToAdd = letra;
+        
+        // Aplicar mayúscula si shift está activo y es una letra
+        if (/[a-zA-ZñÑ]/.test(letra)) {
+          charToAdd = isShiftActive ? letra.toUpperCase() : letra.toLowerCase();
+        }
+        
+        input.value += charToAdd;
+        
+        // Desactivar shift después de escribir una letra
+        if (isShiftActive && /[a-zA-ZñÑ]/.test(letra)) {
+          isShiftActive = false;
+          document.querySelector('.tecla-shift').style.background = 
+            'linear-gradient(135deg, rgba(100, 100, 100, 0.95) 0%, rgba(80, 80, 80, 0.95) 100%)';
+          updateLetterCase();
+        }
+      }
+      
+      // Efecto visual de pulsación
+      this.style.transform = 'translateY(2px)';
+      setTimeout(() => {
+        this.style.transform = '';
+      }, 100);
+      
+      // Mantener focus en el input
+      input.focus();
+    });
+  });
+  
+  function updateLetterCase() {
+    const letterTeclas = document.querySelectorAll('.tecla-img:not(.tecla-shift):not(.tecla-backspace):not(.tecla-symbols):not(.tecla-space):not(.tecla-enter)');
+    letterTeclas.forEach(tecla => {
+      const span = tecla.querySelector('.tecla-letra');
+      const currentText = span.textContent;
+      
+      if (/[a-zA-ZñÑ]/.test(currentText)) {
+        span.textContent = isShiftActive ? currentText.toUpperCase() : currentText.toLowerCase();
+      }
+    });
+  }
+  
+  // Inicializar con minúsculas
+  updateLetterCase();
+});
