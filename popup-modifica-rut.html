@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+  <main>
+    <header class="flex justify-between align-center">
+      <img src="assets/images/logo-LA.png" alt="Logo" class="logo-logged">
+      <div class="flex flex-column font-bold font-size-18 text-uppercase">
+        <span>Hola <span class="color-primary">Héctor</span></span>
+        <span>Tu categoría es: <span class="color-primary">Seven Stars</span></span>
+      </div>
+    </header>
+    <div class="container-full">
+      <div class="content-tu-cuenta">
+        <div class="flex justify-center py-1">
+          <div class="mr-2 flex flex-column align-center" style="width: 150px;">
+            <img src="assets/images/icon-tu-cuenta.svg">
+            <h2>Tu cuenta</h2>
+          </div>
+          <div class="flex flex-column" style="flex-grow: 1;">
+            <div class="user-info">
+              <div class="user-info-item">
+                <span class="user-info-label">Nombre:</span>
+                <span class="user-info-value">Carlos SANCHEZ Olivares</span>
+              </div>
+              <div class="user-info-item">
+                <span class="user-info-label">RUT:</span>
+                <span class="user-info-value">13654456-1</span>
+              </div>
+              <div class="user-info-item">
+                <span class="user-info-label">Email:</span>
+                <span class="user-info-value">correo@correo.cl</span>
+                <a href="#"><span class="user-info-edit flex font-size-16"><img src="assets/images/icon-edit.svg" style="padding-right: 3px;"><span>Modificar</span></span></a>
+              </div>
+              <div class="user-info-item">
+                <span class="user-info-label">Teléfono:</span>
+                <span class="user-info-value">+56 9 9382 8762</span>
+                <a href="#"><span class="user-info-edit flex font-size-16"><img src="assets/images/icon-edit.svg" style="padding-right: 3px;"><span>Modificar</span></span></a>
+              </div>
+            </div>
+            <div class="user-info">
+              <div class="user-info-item">
+                <span class="user-info-label">Tu categoría:</span>
+                <span class="user-info-value">Seven stars</span>
+              </div>
+              <div class="user-info-item">
+                <span class="user-info-label">Puntos de categoría:</span>
+                <span class="user-info-value">7.343.675 puntos</span>
+              </div>
+              <div class="user-info-item">
+                <span class="user-info-label">Puntos para cambio de categoría:</span>
+                <span class="user-info-value">0 puntos</span>
+              </div>
+            </div>
+            <div class="user-info">
+              <div class="user-info-item">
+                <span class="user-info-label">Tu ejecutivo:</span>
+                <span class="user-info-value">Carlos Bravo</span>
+              </div>
+              <div class="user-info-item">
+                <span class="user-info-label">Teléfono:</span>
+                <span class="user-info-value">+569 2345 5432</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grilla-accesos-logged">
+        <a href="tus-sorteos.html" class="card-logged">
+          <img src="assets/images/icon-sorteos.svg">
+          <h3>Tus sorteos</h3>
+          <p><span>1</span> cupon</p>
+        </a>
+        <a href="tus-canjes.html" class="card-logged">
+          <img src="assets/images/icon-tus-canjes.svg">
+          <h3>Tus canjes</h3>
+          <p><span>1</span> punto de canje</p>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="edit-message">
+    <div class="content-edit-message">
+      <div class="content-edit-inputs">
+        <div class="py-2 text-center">
+          <h2 class="text-uppercase color-primary font-size-42">Modificar RUT</h2>
+          <p class="text-center font-size-24">Para modificar tu RUT, ingresa el nuevo RUT a continuación.</p>
+        </div>
+        <input type="text" class="input-edit">
+        <!-- Este párrafo es para mensajes (Si no se ocupa DEBE estar vacío solamente para que cuando aparezca no produzca un "salto")-->
+        <p class="font-size-18 color-primary font-bold mt-1">Ingrese un rut válido</p>
+      </div>
+      <div class="keyboard">
+        <!-- Fila de números y símbolos -->
+        <div class="keyboard-row">
+          <div class="tecla-img"><span class="tecla-letra">1</span></div>
+          <div class="tecla-img"><span class="tecla-letra">2</span></div>
+          <div class="tecla-img"><span class="tecla-letra">3</span></div>
+          <div class="tecla-img"><span class="tecla-letra">4</span></div>
+          <div class="tecla-img"><span class="tecla-letra">5</span></div>
+          <div class="tecla-img"><span class="tecla-letra">6</span></div>
+          <div class="tecla-img"><span class="tecla-letra">7</span></div>
+          <div class="tecla-img"><span class="tecla-letra">8</span></div>
+          <div class="tecla-img"><span class="tecla-letra">9</span></div>
+          <div class="tecla-img"><span class="tecla-letra">0</span></div>
+        </div>
+        <!-- Primera fila QWERTY -->
+        <div class="keyboard-row">
+          <div class="tecla-img"><span class="tecla-letra">Q</span></div>
+          <div class="tecla-img"><span class="tecla-letra">W</span></div>
+          <div class="tecla-img"><span class="tecla-letra">E</span></div>
+          <div class="tecla-img"><span class="tecla-letra">R</span></div>
+          <div class="tecla-img"><span class="tecla-letra">T</span></div>
+          <div class="tecla-img"><span class="tecla-letra">Y</span></div>
+          <div class="tecla-img"><span class="tecla-letra">U</span></div>
+          <div class="tecla-img"><span class="tecla-letra">I</span></div>
+          <div class="tecla-img"><span class="tecla-letra">O</span></div>
+          <div class="tecla-img"><span class="tecla-letra">P</span></div>
+        </div>
+        <!-- Segunda fila ASDF -->
+        <div class="keyboard-row">
+          <div class="tecla-img"><span class="tecla-letra">A</span></div>
+          <div class="tecla-img"><span class="tecla-letra">S</span></div>
+          <div class="tecla-img"><span class="tecla-letra">D</span></div>
+          <div class="tecla-img"><span class="tecla-letra">F</span></div>
+          <div class="tecla-img"><span class="tecla-letra">G</span></div>
+          <div class="tecla-img"><span class="tecla-letra">H</span></div>
+          <div class="tecla-img"><span class="tecla-letra">J</span></div>
+          <div class="tecla-img"><span class="tecla-letra">K</span></div>
+          <div class="tecla-img"><span class="tecla-letra">L</span></div>
+          <div class="tecla-img"><span class="tecla-letra">Ñ</span></div>
+        </div>
+        <!-- Tercera fila ZXCV con Borrar -->
+        <div class="keyboard-row">
+          <div class="tecla-img tecla-shift"><span class="tecla-letra">⇧</span></div>
+          <div class="tecla-img"><span class="tecla-letra">Z</span></div>
+          <div class="tecla-img"><span class="tecla-letra">X</span></div>
+          <div class="tecla-img"><span class="tecla-letra">C</span></div>
+          <div class="tecla-img"><span class="tecla-letra">V</span></div>
+          <div class="tecla-img"><span class="tecla-letra">B</span></div>
+          <div class="tecla-img"><span class="tecla-letra">N</span></div>
+          <div class="tecla-img"><span class="tecla-letra">M</span></div>
+          <div class="tecla-img tecla-backspace"><span class="tecla-letra">⌫</span></div>
+        </div>
+        <!-- Cuarta fila con símbolos y espacio -->
+        <div class="keyboard-row">
+          <div class="tecla-img tecla-symbols"><span class="tecla-letra">123</span></div>
+          <div class="tecla-img"><span class="tecla-letra">@</span></div>
+          <div class="tecla-img"><span class="tecla-letra">.</span></div>
+          <div class="tecla-img tecla-space"><span class="tecla-letra">Espacio</span></div>
+          <div class="tecla-img"><span class="tecla-letra">-</span></div>
+          <div class="tecla-img"><span class="tecla-letra">_</span></div>
+          <div class="tecla-img tecla-enter"><span class="tecla-letra">↵</span></div>
+        </div>
+        <!-- Fila de símbolos especiales (se mostrará al presionar 123) -->
+        <div class="keyboard-row symbols-row" style="display: none;">
+          <div class="tecla-img"><span class="tecla-letra">!</span></div>
+          <div class="tecla-img"><span class="tecla-letra">?</span></div>
+          <div class="tecla-img"><span class="tecla-letra">#</span></div>
+          <div class="tecla-img"><span class="tecla-letra">$</span></div>
+          <div class="tecla-img"><span class="tecla-letra">%</span></div>
+          <div class="tecla-img"><span class="tecla-letra">&</span></div>
+          <div class="tecla-img"><span class="tecla-letra">*</span></div>
+          <div class="tecla-img"><span class="tecla-letra">+</span></div>
+          <div class="tecla-img"><span class="tecla-letra">=</span></div>
+          <div class="tecla-img"><span class="tecla-letra">/</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <a href="#" onclick="PopupManager.mostrarPredefinido('sinIcono')">Condiciones de uso</a>
+    <a href="inicio.html" class="flex font-size-24"><img src="assets/images/icon-back.svg" class="mr-1">Volver al menú principal</a>
+    <a href="#" class="flex align-center justify-center"><span class="mr-1">Salir</span> <img src="assets/images/icon-salir.svg"></a>
+  </footer>
+</main>
+<script>
+// Funcionalidad del teclado touchscreen
+document.addEventListener('DOMContentLoaded', function() {
+  const input = document.querySelector('.input-edit');
+  const teclas = document.querySelectorAll('.tecla-img');
+  const symbolsRow = document.querySelector('.symbols-row');
+  let isShiftActive = false;
+  let isSymbolsActive = false;
+  
+  teclas.forEach(tecla => {
+    tecla.addEventListener('click', function() {
+      const letra = this.querySelector('.tecla-letra').textContent;
+      
+      // Manejar teclas especiales
+      if (this.classList.contains('tecla-backspace')) {
+        // Borrar último carácter
+        input.value = input.value.slice(0, -1);
+        
+      } else if (this.classList.contains('tecla-shift')) {
+        // Alternar mayúsculas/minúsculas
+        isShiftActive = !isShiftActive;
+        this.style.background = isShiftActive ? 
+          'linear-gradient(135deg, rgba(232, 209, 44, 0.9) 0%, rgba(200, 180, 20, 0.9) 100%)' :
+          'linear-gradient(135deg, rgba(100, 100, 100, 0.95) 0%, rgba(80, 80, 80, 0.95) 100%)';
+        
+        // Actualizar todas las letras
+        updateLetterCase();
+        
+      } else if (this.classList.contains('tecla-symbols')) {
+        // Alternar vista de símbolos
+        isSymbolsActive = !isSymbolsActive;
+        symbolsRow.style.display = isSymbolsActive ? 'flex' : 'none';
+        this.querySelector('.tecla-letra').textContent = isSymbolsActive ? 'ABC' : '123';
+        
+      } else if (this.classList.contains('tecla-space')) {
+        // Agregar espacio
+        input.value += ' ';
+        
+      } else if (this.classList.contains('tecla-enter')) {
+        // Simular envío o nueva línea (para este caso, podríamos cerrar el modal)
+        console.log('Enter presionado:', input.value);
+        
+      } else {
+        // Agregar carácter normal
+        let charToAdd = letra;
+        
+        // Aplicar mayúscula si shift está activo y es una letra
+        if (/[a-zA-ZñÑ]/.test(letra)) {
+          charToAdd = isShiftActive ? letra.toUpperCase() : letra.toLowerCase();
+        }
+        
+        input.value += charToAdd;
+        
+        // Desactivar shift después de escribir una letra
+        if (isShiftActive && /[a-zA-ZñÑ]/.test(letra)) {
+          isShiftActive = false;
+          document.querySelector('.tecla-shift').style.background = 
+            'linear-gradient(135deg, rgba(100, 100, 100, 0.95) 0%, rgba(80, 80, 80, 0.95) 100%)';
+          updateLetterCase();
+        }
+      }
+      
+      // Efecto visual de pulsación
+      this.style.transform = 'translateY(2px)';
+      setTimeout(() => {
+        this.style.transform = '';
+      }, 100);
+      
+      // Mantener focus en el input
+      input.focus();
+    });
+  });
+  
+  function updateLetterCase() {
+    const letterTeclas = document.querySelectorAll('.tecla-img:not(.tecla-shift):not(.tecla-backspace):not(.tecla-symbols):not(.tecla-space):not(.tecla-enter)');
+    letterTeclas.forEach(tecla => {
+      const span = tecla.querySelector('.tecla-letra');
+      const currentText = span.textContent;
+      
+      if (/[a-zA-ZñÑ]/.test(currentText)) {
+        span.textContent = isShiftActive ? currentText.toUpperCase() : currentText.toLowerCase();
+      }
+    });
+  }
+  
+  // Inicializar con minúsculas
+  updateLetterCase();
+});
+</script>
+</body>
+
+</html>
