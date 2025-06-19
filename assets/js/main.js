@@ -364,6 +364,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Inicializar scroll de lista de sorteos
   initSorteosScroll();
+  
+  // Inicializar scroll de lista de canjes
+  initCanjesScroll();
 
   function initModificarCorreo() {
     const btnModificarCorreo = document.querySelector('a[href="#"] .user-info-edit');
@@ -392,6 +395,69 @@ function initSorteosScroll() {
   const scrollUpBtn = document.getElementById('scroll-up');
   const scrollDownBtn = document.getElementById('scroll-down');
   const listContainer = document.querySelector('.lista-sorteos');
+  
+  if (!scrollUpBtn || !scrollDownBtn || !listContainer) {
+    return;
+  }
+
+  const scrollAmount = 60; // Cantidad de píxeles a hacer scroll por clic
+
+  // Función para actualizar la visibilidad de las flechas
+  function updateArrowVisibility() {
+    const { scrollTop, scrollHeight, clientHeight } = listContainer;
+    
+    // Mostrar flecha hacia arriba si hay scroll hacia abajo
+    if (scrollTop > 0) {
+      scrollUpBtn.classList.add('visible');
+    } else {
+      scrollUpBtn.classList.remove('visible');
+    }
+    
+    // Mostrar flecha hacia abajo si se puede hacer más scroll hacia abajo
+    if (scrollTop + clientHeight < scrollHeight - 5) { // -5 para margen de error
+      scrollDownBtn.classList.add('visible');
+    } else {
+      scrollDownBtn.classList.remove('visible');
+    }
+  }
+
+  // Función para scroll hacia arriba
+  scrollUpBtn.addEventListener('click', function() {
+    listContainer.scrollTop -= scrollAmount;
+  });
+
+  // Función para scroll hacia abajo
+  scrollDownBtn.addEventListener('click', function() {
+    listContainer.scrollTop += scrollAmount;
+  });
+
+  // Escuchar el evento de scroll para actualizar las flechas
+  listContainer.addEventListener('scroll', updateArrowVisibility);
+
+  // Inicializar la visibilidad de las flechas
+  setTimeout(updateArrowVisibility, 100); // Timeout para asegurar que el DOM esté completamente cargado
+
+  // Opcional: Agregar hover effects para mejorar la UX
+  [scrollUpBtn, scrollDownBtn].forEach(btn => {
+    btn.addEventListener('mouseenter', function() {
+      if (this.classList.contains('visible')) {
+        this.style.opacity = '1';
+      }
+    });
+    
+    btn.addEventListener('mouseleave', function() {
+      if (this.classList.contains('visible')) {
+        this.style.opacity = '1';
+      }
+    });
+  });
+}
+
+// Función para manejar el scroll de la lista de canjes
+function initCanjesScroll() {
+  const scrollUpBtn = document.getElementById('scroll-up');
+  const scrollDownBtn = document.getElementById('scroll-down');
+  const listContainer = document.querySelector('.lista-canjes');
   
   if (!scrollUpBtn || !scrollDownBtn || !listContainer) {
     return;

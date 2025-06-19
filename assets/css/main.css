@@ -567,7 +567,7 @@ footer{
 .lista-sorteos{
   width: 100%;
   flex: 1;
-  overflow-y: auto;
+  overflow-y: hidden;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -619,7 +619,7 @@ footer{
 .lista-canjes{
   width: 100%;
   flex: 1;
-  overflow-y: auto;
+  overflow-y: hidden;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -685,6 +685,7 @@ footer{
   align-items: center;
   justify-content: space-between;
   margin: 5px 10px 5px 0;
+  flex-shrink: 0;
 }
 
 .wrapper-counter span{
