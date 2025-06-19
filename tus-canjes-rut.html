@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+  <main>
+    <header class="flex justify-between align-center">
+      <img src="assets/images/logo-LA.png" alt="Logo" class="logo-logged">
+      <div class="flex flex-column font-bold font-size-18 text-uppercase">
+        <span>Hola <span class="color-primary">Héctor</span></span>
+        <span>Tu categoría es: <span class="color-primary">Seven Stars</span></span>
+      </div>
+    </header>
+    <div class="container-full">
+      <div class="content-tus-sorteos">
+        <div class="flex justify-center py-1">
+          <div class="mr-2 flex flex-column align-center" style="width: 180px;">
+            <img src="assets/images/icon-tus-canjes.svg" style="width: 100px;">
+            <h2>Tus canjes</h2>
+          </div>
+          <div class="flex w-full">
+            <div class="mr-2" style="flex: 1;">
+              <h3 class="font-size-24 text-uppercase">Canjes disponibles</h3>
+              <div class="flex flex-row">
+                <div class="wrapper-lista-canjes">
+                  <div class="flex justify-center align-center arrow">
+                    <img src="assets/images/arrow-up.svg" alt="Scroll arriba" id="scroll-up" class="scroll-arrow">
+                  </div>
+                  <ul class="lista-canjes">
+                    <li class="selected"><span class="color-primary font-bold">Puntos de canje Máquinas de azar</span><span class="font-size-16">Valido solo en tragamonedas</span></li>
+                    <li><span class="color-primary font-bold">Puntos de canje Mesa</span><span class="font-size-16">Válido sólo en mesas de juegos</span></li>
+                    <li><span class="color-primary font-bold">Puntos de canje</span><span class="font-size-16">Válido para todos los servicios Enjoy</span></li>
+                  </ul>
+                  <div class="flex justify-center align-center arrow">
+                    <img src="assets/images/arrow-down.svg" alt="Scroll abajo" id="scroll-down" class="scroll-arrow">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="flex: 1;">
+              <h3 class="font-size-24 text-uppercase color-primary font-bold">Piscola Mistral por 185 puntos</h3>
+              <div class="font-size-16 flex"><span style="width: 120px; flex-shrink: 0;">Validez:</span> <span>Desde 07 de Mayo 1225 (07:00 horas) hasta 09 de Mayo (06:59 horas)</span></div>
+              <div class="font-size-16 flex"><span style="width: 120px; flex-shrink: 0;">Día a elección:</span> <span>Cualquier 12a a elección</span></div>
+              <div>
+                <div class="wrapper-calculadora mb-1">
+                  <div class="flex flex-row align-center">
+                    <div class="wrapper-counter py-1">
+                      <img src="assets/images/tecla-.svg">
+                      <span class="font-size-24 font-bold">1</span>
+                      <img src="assets/images/tecla+.svg">
+                    </div>
+                    <div class="font-size-24 font-bold mr-1">Canje(s)</div>
+                    <div class="font-size-16 wrapper-rut-entradas">
+                      <span>Rut(s) entradas:</span>
+                      <span>13.545.433-2</span>
+                      <span>3.445.433-1</span>
+                      <span>8.435.375-3</span>
+                      <span>5.565.323.8</span>
+                      <span>21.322.324-k</span>
+                    </div>
+                  </div>
+                  <div class="flex flex-row justify-between align-center">
+                    <div class="font-size-16">Disponibles</div>
+                    <div class="font-bold">1000 puntos de canje</div>
+                  </div>
+                  <div class="flex flex-row justify-between align-center border-bottom" style="padding-bottom: 5px;">
+                    <div class="font-size-16">Canje</div>
+                    <div class="font-bold">-1440</div>
+                  </div>
+                  <div class="flex flex-row justify-between align-center">
+                    <div class="font-size-16">Saldo</div>
+                    <div class="font-bold">998560 Puntos de canje</div>
+                  </div>
+                </div>
+                <button type="button" onclick="PopupManager.mostrarPredefinido('imprimiendo')" class="btn"><img src="assets/images/btn-activar-entradas.svg"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grilla-accesos-logged">
+        <a href="tu-cuenta.html" class="card-logged">
+          <img src="assets/images/icon-tu-cuenta.svg">
+          <h3>Tus cuenta</h3>
+            <p>&nbsp;</p>
+        </a>
+        <a href="tus-sorteos.html" class="card-logged">
+          <img src="assets/images/icon-sorteos.svg">
+          <h3>Tus sorteos</h3>
+          <p><span>1</span> punto de canje</p>
+        </a>
+      </div>
+    </div>
+  <!-- Popup -->
+  <div class="agrega-rut">
+    <div class="wrapper-agrega-rut">
+      <section class="content-pin">
+        <div class="wrapper-input-ingresar">
+          <input type="text" type="password" maxlength="4" class="input-pin">
+        </div>
+        <div class="teclado">
+          <a href="#"><img src="assets/images/tecla-1.svg" alt="tecla 1"></a>
+          <a href="#"><img src="assets/images/tecla-2.svg" alt="tecla 1"></a>
+          <a href="#"><img src="assets/images/tecla-3.svg" alt="tecla 1"></a>
+          <a href="#"><img src="assets/images/tecla-4.svg" alt="tecla 1"></a>
+          <a href="#"><img src="assets/images/tecla-5.svg" alt="tecla 1"></a>
+          <a href="#"><img src="assets/images/tecla-6.svg" alt="tecla 1"></a>
+          <a href="#"><img src="assets/images/tecla-7.svg" alt="tecla 1"></a>
+          <a href="#"><img src="assets/images/tecla-8.svg" alt="tecla 1"></a>
+          <a href="#"><img src="assets/images/tecla-9.svg" alt="tecla 1"></a>
+          <img src="assets/images/tecla-k.svg" alt="tecla">
+          <a href="#"><img src="assets/images/tecla-0.svg" alt="tecla 0"></a>
+          <a href="#"><img src="assets/images/tecla-erase.svg" alt="tecla borrar"></a>
+        </div>
+        <div class="wrapper-boton-ingresar">
+          <a href="#" title="Ingresar">
+            <img src="assets/images/btn-ingresar.svg" alt="">
+          </a>
+        </div>
+      </section>
+    </div>
+    <div class="agrega-rut-content">
+    </div>
+  </div>
+  <footer>
+    <a href="#" onclick="PopupManager.mostrarPredefinido('sinIcono')">Condiciones de uso</a>
+    <a href="inicio.html" class="flex font-size-24"><img src="assets/images/icon-back.svg" class="mr-1">Volver al menú
+      principal</a>
+    <a href="#" class="flex align-center justify-center"><span class="mr-1">Salir</span> <img src="assets/images/icon-salir.svg"></a>
+  </footer>
+</main>
+<script src="assets/js/main.js"></script>
+</body>
+
+</html>

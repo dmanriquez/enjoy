@@ -1002,3 +1002,49 @@ footer{
   box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5);
   outline: none;
 }
+
+.wrapper-rut-entradas span {
+  margin-right: 5px;
+}
+
+.wrapper-rut-entradas span::after {
+  content: ',';
+}
+
+.wrapper-rut-entradas span:last-child::after {
+  content: '';
+}
+
+.wrapper-rut-entradas span:first-child {
+  font-weight: bold;
+}
+
+/* Original selector for reference */
+.wrapper-rut-entradas span:first-child::after {
+  content: '';
+}
+
+/* ////////////// Popup agrega rut ////////////// */
+.agrega-rut{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.wrapper-agrega-rut{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
