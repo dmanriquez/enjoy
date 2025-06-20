@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+  <main>
+    <header class="flex justify-between align-center">
+      <img src="assets/images/logo-LA.png" alt="Logo" class="logo-logged">
+      <div class="flex flex-column font-bold font-size-18 text-uppercase">
+        <span>Hola <span class="color-primary">Héctor</span></span>
+        <span>Tu categoría es: <span class="color-primary">Seven Stars</span></span>
+      </div>
+    </header>
+    <div class="container-full">
+      <div class="content-tus-sorteos">
+        <div class="flex justify-center py-1">
+          <div class="mr-2 flex flex-column align-center" style="width: 180px;">
+            <img src="assets/images/icon-sorteos.svg" style="width: 100px;">
+            <h2>Tus sorteos</h2>
+          </div>
+          <div class="flex w-full">
+            <div class="mr-2" style="flex: 1;">
+              <h3 class="font-size-24 text-uppercase">Sin sorteos disponibles</h3>
+              <div class="flex flex-row align-center justify-center">
+                <div class="py-2">
+                  <img src="assets/images/no-tickets.svg"> 
+                </div>
+              </div>
+            </div>
+            <div style="flex: 1;">
+              <div style="width: 1px; height: 35px;"></div>
+              <div class="flex flex-row align-center justify-center">
+                <div class="py-2">
+                  <img src="assets/images/no-tickets.svg">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grilla-accesos-logged">
+        <a href="tu-cuenta.html" class="card-logged">
+          <img src="assets/images/icon-tu-cuenta.svg">
+          <h3>Tus cuenta</h3>
+            <p>&nbsp;</p>
+        </a>
+        <a href="tus-canjes.html" class="card-logged">
+          <img src="assets/images/icon-tus-canjes.svg">
+          <h3>Tus canjes</h3>
+          <p><span>1</span> punto de canje</p>
+        </a>
+      </div>
+    </div>
+  <!-- Popup -->
+  <div class="message">
+    <div class="message-content"></div>
+  </div>
+  <footer>
+    <a href="#" onclick="PopupManager.mostrarPredefinido('sinIcono')">Condiciones de uso</a>
+    <a href="inicio.html" class="flex font-size-24"><img src="assets/images/icon-back.svg" class="mr-1">Volver al menú principal</a>
+    <a href="#" class="flex align-center justify-center"><span class="mr-1">Salir</span> <img src="assets/images/icon-salir.svg"></a>
+  </footer>
+</main>
+<script src="assets/js/main.js"></script>
+</body>
+
+</html>
