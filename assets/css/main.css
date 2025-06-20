@@ -1003,6 +1003,17 @@ footer{
   outline: none;
 }
 
+.input-edit-correo {
+  width: 800px;
+  padding: 5px 295px 5px 20px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 1);
+  color: #000000;
+  font-size: 32px;
+  font-weight: 600;
+  outline: none;
+}
+
 .wrapper-rut-entradas span {
   margin-right: 5px;
 }
