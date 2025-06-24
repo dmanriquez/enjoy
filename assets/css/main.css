@@ -593,7 +593,11 @@ footer{
   background-color: transparent;
 }
 
-.lista-sorteos li.selected{
+.lista-sorteos li.selected {
+  color: var(--primary-color);
+}
+
+.lista-canjes li.selected span:first-child {
   color: var(--primary-color);
 }
 

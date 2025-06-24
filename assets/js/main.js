@@ -124,6 +124,13 @@ document.addEventListener("DOMContentLoaded", function () {
       mostrarTitulo: true,
       mostrarIcono: true
     },
+    "activando-entradas": {
+      titulo: "Activando entradas...",
+      icono: "assets/images/icon-entradas.svg",
+      mensaje: "Por favor espere mientras se activan tus entradas",
+      mostrarTitulo: true,
+      mostrarIcono: true
+    },
     datosIncorrectos: {
       titulo: "Datos incorrectos",
       icono: "assets/images/icon-datos-incorrectos.svg",
