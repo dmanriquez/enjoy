@@ -533,11 +533,6 @@ document.addEventListener('DOMContentLoaded', function() {
   
   teclas.forEach(tecla => {
     tecla.addEventListener('click', function() {
-      // Evitar que este event listener afecte las teclas del popup de reestablecer PIN
-      if (this.closest('#popup-reestablecer-pin')) {
-        return;
-      }
-      
       const letra = this.querySelector('.tecla-letra').textContent;
       
       // Manejar teclas especiales
