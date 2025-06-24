@@ -37,7 +37,7 @@
             <img src="assets/images/btn-ingresar.svg" alt="">
           </a>
         </div>
-        <a href="#" class="flex">
+        <a href="#" class="flex" id="reestablecer-pin-btn">
           <span class="mr-1">Reestablecer pin</span> <img src="assets/images/icon-reestablecer-pin.svg" alt="">
         </a>
         <div class="message-session">
@@ -45,6 +45,103 @@
         </div>
       </div>
     </div>
+
+    <!-- Popup para reestablecer PIN -->
+    <div class="edit-message" id="popup-reestablecer-pin" style="display: none;">
+      <span class="btn-close-edit" id="close-popup">
+        <svg width="40" height="40" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="15" cy="15" r="14" fill="white" stroke="black" stroke-width="2" />
+          <path d="M10 10L20 20M20 10L10 20" stroke="black" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </span>
+      <div class="content-edit-message">
+        <div class="content-edit-inputs">
+          <div class="py-2 text-center">
+            <h2 class="text-uppercase color-primary font-size-42">Reestablecer PIN</h2>
+            <p class="text-center font-size-24">Ingresa tu nuevo PIN de 4 dígitos.</p>
+          </div>
+          <input type="password" class="input-edit" id="nuevo-pin-input" maxlength="4" placeholder="Nuevo PIN">
+          <p class="font-size-18 color-primary font-bold mt-1" id="mensaje-pin">Error al ingresar el PIN</p>
+        </div>
+        <div class="keyboard">
+          <!-- Fila de números y símbolos -->
+          <div class="keyboard-row">
+            <div class="tecla-img"><span class="tecla-letra">1</span></div>
+            <div class="tecla-img"><span class="tecla-letra">2</span></div>
+            <div class="tecla-img"><span class="tecla-letra">3</span></div>
+            <div class="tecla-img"><span class="tecla-letra">4</span></div>
+            <div class="tecla-img"><span class="tecla-letra">5</span></div>
+            <div class="tecla-img"><span class="tecla-letra">6</span></div>
+            <div class="tecla-img"><span class="tecla-letra">7</span></div>
+            <div class="tecla-img"><span class="tecla-letra">8</span></div>
+            <div class="tecla-img"><span class="tecla-letra">9</span></div>
+            <div class="tecla-img"><span class="tecla-letra">0</span></div>
+          </div>
+          <!-- Primera fila QWERTY -->
+          <div class="keyboard-row">
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">Q</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">W</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">E</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">R</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">T</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">Y</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">U</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">I</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">O</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">P</span></div>
+          </div>
+          <!-- Segunda fila ASDF -->
+          <div class="keyboard-row">
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">A</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">S</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">D</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">F</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">G</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">H</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">J</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">K</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">L</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">Ñ</span></div>
+          </div>
+          <!-- Tercera fila ZXCV con Borrar -->
+          <div class="keyboard-row">
+            <div class="tecla-img tecla-shift"><span class="tecla-letra">⇧</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">Z</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">X</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">C</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">V</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">B</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">N</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">M</span></div>
+            <div class="tecla-img tecla-backspace"><span class="tecla-letra">⌫</span></div>
+          </div>
+          <!-- Cuarta fila con símbolos y espacio -->
+          <div class="keyboard-row">
+            <div class="tecla-img tecla-symbols"><span class="tecla-letra">123</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">@</span></div>
+            <div class="tecla-img"><span class="tecla-letra">.</span></div>
+            <div class="tecla-img tecla-space"><span class="tecla-letra">Espacio</span></div>
+            <div class="tecla-img"><span class="tecla-letra">-</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">_</span></div>
+            <div class="tecla-img tecla-enter"><span class="tecla-letra">↵</span></div>
+          </div>
+          <!-- Fila de símbolos especiales (se mostrará al presionar 123) -->
+          <div class="keyboard-row symbols-row" style="display: none;">
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">!</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">?</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">#</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">$</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">%</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">&</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">*</span></div>
+            <div class="tecla-img"><span class="tecla-letra">+</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">=</span></div>
+            <div class="tecla-img tecla-desactivada"><span class="tecla-letra">/</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <footer>
       <a href="#">Condiciones de uso</a>
       <a href="#" class="flex"><span class="mr-1">Salir</span> <img src="assets/images/icon-salir.svg"></a>
