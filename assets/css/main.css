@@ -593,7 +593,11 @@ footer{
   background-color: transparent;
 }
 
-.lista-sorteos li.selected{
+.lista-sorteos li.selected {
+  color: var(--primary-color);
+}
+
+.lista-canjes li.selected span:first-child {
   color: var(--primary-color);
 }
 
@@ -693,7 +697,7 @@ footer{
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin: 5px 10px 5px 0;
+  margin: 0 10px 0 0;
   flex-shrink: 0;
 }
 
@@ -1012,8 +1016,16 @@ footer{
   outline: none;
 }
 
+.wrapper-rut-entradas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
 .wrapper-rut-entradas span {
   margin-right: 5px;
+  font-size: 13px;
+  font-weight: 800;
 }
 
 .wrapper-rut-entradas span::after {

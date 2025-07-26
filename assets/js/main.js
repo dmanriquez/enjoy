@@ -124,6 +124,13 @@ document.addEventListener("DOMContentLoaded", function () {
       mostrarTitulo: true,
       mostrarIcono: true
     },
+    "activando-entradas": {
+      titulo: "Activando entradas...",
+      icono: "assets/images/icon-entradas.svg",
+      mensaje: "Por favor espere mientras se activan tus entradas",
+      mostrarTitulo: true,
+      mostrarIcono: true
+    },
     datosIncorrectos: {
       titulo: "Datos incorrectos",
       icono: "assets/images/icon-datos-incorrectos.svg",
@@ -602,4 +609,95 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Inicializar con minúsculas
   updateLetterCase();
+
+  // Funcionalidad del popup para reestablecer PIN
+  const reestablecerPinBtn = document.getElementById('reestablecer-pin-btn');
+  const popupReestablecerPin = document.getElementById('popup-reestablecer-pin');
+  const closePopupBtn = document.getElementById('close-popup');
+  const nuevoPinInput = document.getElementById('nuevo-pin-input');
+  const mensajePin = document.getElementById('mensaje-pin');
+
+  // Mostrar popup al hacer clic en "Reestablecer pin"
+  if (reestablecerPinBtn) {
+    reestablecerPinBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      if (popupReestablecerPin) {
+        popupReestablecerPin.style.display = 'flex';
+      }
+    });
+  }
+
+  // Cerrar popup
+  if (closePopupBtn) {
+    closePopupBtn.addEventListener('click', function() {
+      if (popupReestablecerPin) {
+        popupReestablecerPin.style.display = 'none';
+        if (nuevoPinInput) nuevoPinInput.value = '';
+        if (mensajePin) mensajePin.style.visibility = 'hidden';
+      }
+    });
+  }
+
+  // Funcionalidad del teclado completo para PIN (solo números activos)
+  if (popupReestablecerPin) {
+    const todasLasTeclas = popupReestablecerPin.querySelectorAll('.tecla-img');
+    
+    todasLasTeclas.forEach(tecla => {
+      tecla.addEventListener('click', function() {
+        const letra = this.querySelector('.tecla-letra').textContent;
+        
+        // Solo procesar números del 0-9
+        if (/^[0-9]$/.test(letra) && nuevoPinInput && nuevoPinInput.value.length < 4) {
+          nuevoPinInput.value += letra;
+        }
+        
+        // Funcionalidad del botón borrar
+        if (letra === '⌫' && nuevoPinInput && nuevoPinInput.value.length > 0) {
+          nuevoPinInput.value = nuevoPinInput.value.slice(0, -1);
+        }
+        
+        // Funcionalidad del botón enter (confirmar)
+        if (letra === '↵') {
+          if (nuevoPinInput && nuevoPinInput.value.length === 4) {
+            // Aquí puedes agregar la lógica para enviar el nuevo PIN
+            console.log('Nuevo PIN:', nuevoPinInput.value);
+            
+            // Mostrar mensaje de confirmación
+            if (mensajePin) {
+              mensajePin.textContent = 'PIN actualizado correctamente';
+              mensajePin.style.visibility = 'visible';
+              mensajePin.style.color = '#00AA00';
+            }
+            
+            // Cerrar popup después de 2 segundos
+            setTimeout(function() {
+              if (popupReestablecerPin) {
+                popupReestablecerPin.style.display = 'none';
+                if (nuevoPinInput) nuevoPinInput.value = '';
+                if (mensajePin) mensajePin.style.visibility = 'hidden';
+              }
+            }, 2000);
+          } else {
+            // Mostrar mensaje de error
+            if (mensajePin) {
+              mensajePin.textContent = 'El PIN debe tener 4 dígitos';
+              mensajePin.style.visibility = 'visible';
+              mensajePin.style.color = '#FF0000';
+            }
+          }
+        }
+      });
+    });
+  }
+
+  // Cerrar popup al hacer clic fuera del contenido
+  if (popupReestablecerPin) {
+    popupReestablecerPin.addEventListener('click', function(e) {
+      if (e.target === popupReestablecerPin) {
+        popupReestablecerPin.style.display = 'none';
+        if (nuevoPinInput) nuevoPinInput.value = '';
+        if (mensajePin) mensajePin.style.visibility = 'hidden';
+      }
+    });
+  }
 });
