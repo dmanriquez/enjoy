@@ -35,6 +35,8 @@
                   <ul class="lista-canjes">
                     <li class="selected"><span class="color-primary font-bold">Puntos de canje Máquinas de azar</span><span class="font-size-16">Valido solo en tragamonedas</span></li>
                     <li><span class="color-primary font-bold">Puntos de canje Mesa</span><span class="font-size-16">Válido sólo en mesas de juegos</span></li>
+                    <li class="canje-desactivado"><span class="color-primary font-bold">Puntos para un auto 0 kilómetro</span><span class="font-size-16">Acumula puntos y podrás acceder a este canje</span></li>
+                    <li class="canje-desactivado"><span class="color-primary font-bold">Viaje a Brasil</span><span class="font-size-16">Acumula puntos y podrás acceder a este canje</span></li>
                     <li><span class="color-primary font-bold">Puntos de canje</span><span class="font-size-16">Válido para todos los servicios Enjoy</span></li>
                   </ul>
                   <div class="flex justify-center align-center arrow">
@@ -44,11 +46,11 @@
               </div>
             </div>
             <div style="flex: 1;">
-              <h3 class="font-size-24 text-uppercase color-primary font-bold">Piscola Mistral por 185 puntos</h3>
+              <h3 class="font-size-24 text-uppercase color-primary font-bold">Viaje a Brasil</h3>
               <div class="font-size-16 flex"><span style="width: 120px; flex-shrink: 0;">Validez:</span> <span>Desde 07 de Mayo 1225 (07:00 horas) hasta 09 de Mayo (06:59 horas)</span></div>
               <div class="font-size-16 flex"><span style="width: 120px; flex-shrink: 0;">Día a elección:</span> <span>Cualquier 12a a elección</span></div>
               <div>
-                <div class="wrapper-calculadora mb-1">
+                <div class="wrapper-calculadora mb-1" style="display: none;">
                   <div class="flex flex-row align-center">
                     <div class="wrapper-counter py-1">
                       <img src="assets/images/tecla-.svg">
@@ -70,7 +72,13 @@
                     <div class="font-bold">998560 Puntos de canje</div>
                   </div>
                 </div>
-                <button type="button" onclick="PopupManager.mostrarPredefinido('imprimiendo')" class="btn"><img src="assets/images/btn-print-canjes.svg"></button>
+                <div class="message-no-canje">
+                  <img src="assets/images/no-canje.svg">
+                  <p>Acumula puntos y podrás acceder a este canje</p>
+                </div>
+                <button type="button" onclick="PopupManager.mostrarPredefinido('imprimiendo')" class="btn btn-disable">
+                  <img src="assets/images/btn-print-canjes.svg">
+                </button>
               </div>
             </div>
           </div>
